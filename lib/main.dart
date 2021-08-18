@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [],
       child: MaterialApp(
-        title: 'Weather App',
+        title: 'BreakingBad App',
         debugShowCheckedModeBanner: false,
         navigatorKey: navigatorKey,
         onGenerateRoute: onGenerateRoute,

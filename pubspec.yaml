@@ -39,6 +39,7 @@ dependencies:
   dio: ^4.0.0
   google_fonts: ^2.1.0
   flutter_conditional_rendering: ^2.0.0
+  flutter_offline: ^2.0.0
 
 
 dev_dependencies:
@@ -54,6 +55,19 @@ dev_dependencies:
   flutter_native_splash: ^1.2.1
   flutter_launcher_icons: ^0.9.1
 
+flutter_native_splash:
+  color: "#42a5f5"
+  image: assets/images/bb_splash_icon.png
+  color_dark: "#333333"
+  image_dark: assets/images/bb_splash_icon.png
+  android: true
+  ios: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/bb_app_icon.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -66,8 +80,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+      - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
