@@ -1,4 +1,4 @@
-# breakingbad_app
+# BreakingBad App
 
 Flutter app for Breaking Bad api using BLoC state mangement and Dio for http request
 
