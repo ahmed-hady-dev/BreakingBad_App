@@ -1,3 +1,5 @@
+import 'package:breakingbad_app/bloc/characters_cubit.dart';
+import 'package:breakingbad_app/core/constants.dart';
 import 'package:breakingbad_app/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,11 +9,11 @@ import 'core/blocObserver/bloc_observer.dart';
 import 'core/dioHelper/dio_helper.dart';
 import 'core/router/router.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,16 +22,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [],
+      providers: [
+        BlocProvider(
+          create: (context) => CharactersCubit(),
+        ),
+      ],
       child: MaterialApp(
         title: 'BreakingBad App',
         debugShowCheckedModeBanner: false,
         navigatorKey: navigatorKey,
         onGenerateRoute: onGenerateRoute,
         theme: ThemeData(
-          textTheme:
-              GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
-        ),
+            textTheme:
+                GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
+            primarySwatch: Colors.indigo,
+            appBarTheme: const AppBarTheme(
+              color: MyColors.darkBlue,
+            )),
         home: HomeView(),
       ),
     );

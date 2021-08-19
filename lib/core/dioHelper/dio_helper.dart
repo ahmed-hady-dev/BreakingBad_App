@@ -1,3 +1,4 @@
+import 'package:breakingbad_app/core/constants.dart';
 import 'package:dio/dio.dart';
 
 class DioHelper {
@@ -7,9 +8,11 @@ class DioHelper {
     //TODO:Edit the base url here
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://www.breakingbadapi.com/api/',
+        baseUrl: baseUrl,
         receiveDataWhenStatusError: true,
         followRedirects: false,
+        // connectTimeout: 20 * 1000,
+        // receiveTimeout: 20 * 1000,
         validateStatus: (status) {
           return status! < 500;
         },
@@ -20,7 +23,7 @@ class DioHelper {
   //===============================================================
   static Future<Response> getData({
     required String url,
-    required Map<String, dynamic> query,
+    Map<String, dynamic>? query,
   }) async {
     return await dio!.get(
       url,

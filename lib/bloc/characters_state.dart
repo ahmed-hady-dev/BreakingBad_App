@@ -4,3 +4,15 @@ part of 'characters_cubit.dart';
 abstract class CharactersState {}
 
 class CharactersInitial extends CharactersState {}
+
+class CharactersLoading extends CharactersState {}
+
+class CharactersSuccess extends CharactersState {}
+
+class CharactersFailed extends CharactersState {}
+
+// class CharactersLoaded extends CharactersState {
+//   final List<CharacterModel> characters;
+//
+//   CharactersLoaded({required this.characters});
+// }
