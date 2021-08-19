@@ -1,11 +1,10 @@
-import 'package:breakingbad_app/core/constants.dart';
+import '../constants.dart';
 import 'package:dio/dio.dart';
 
 class DioHelper {
   static Dio? dio;
 
   static init() {
-    //TODO:Edit the base url here
     dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,

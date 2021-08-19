@@ -1,6 +1,7 @@
-import 'package:breakingbad_app/core/constants.dart';
-import 'package:breakingbad_app/model/character_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/constants.dart';
+import '../../model/character_model.dart';
 
 class CharacterView extends StatelessWidget {
   final CharacterModel character;
@@ -112,11 +113,6 @@ class CharacterView extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      // BlocBuilder<CharactersCubit, CharactersState>(
-                      //   builder: (context, state) {
-                      //     return checkIfQuotesAreLoaded(state);
-                      //   },
-                      // ),
                     ],
                   ),
                 )

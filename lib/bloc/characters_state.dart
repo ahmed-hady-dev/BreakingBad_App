@@ -11,8 +11,4 @@ class CharactersSuccess extends CharactersState {}
 
 class CharactersFailed extends CharactersState {}
 
-// class CharactersLoaded extends CharactersState {
-//   final List<CharacterModel> characters;
-//
-//   CharactersLoaded({required this.characters});
-// }
+

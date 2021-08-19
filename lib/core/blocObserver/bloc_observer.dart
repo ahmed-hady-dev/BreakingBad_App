@@ -7,11 +7,6 @@ class MyBlocObserver extends BlocObserver {
     print('onCreate -- ${bloc.runtimeType}');
   }
 
-  // @override
-  // void onEvent(Bloc bloc, Object? event) {
-  //   super.onEvent(bloc, event);
-  //   print('onEvent -- ${bloc.runtimeType}, $event');
-  // }
 
   @override
   void onChange(BlocBase bloc, Change change) {

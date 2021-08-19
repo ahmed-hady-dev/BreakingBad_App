@@ -1,13 +1,13 @@
-import 'package:breakingbad_app/bloc/characters_cubit.dart';
-import 'package:breakingbad_app/core/constants.dart';
-import 'package:breakingbad_app/view/home/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'bloc/characters_cubit.dart';
 import 'core/blocObserver/bloc_observer.dart';
+import 'core/constants.dart';
 import 'core/dioHelper/dio_helper.dart';
 import 'core/router/router.dart';
+import 'view/home/view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

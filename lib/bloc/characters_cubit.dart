@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:breakingbad_app/core/dioHelper/dio_helper.dart';
-import 'package:breakingbad_app/model/character_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+
+import '../core/dioHelper/dio_helper.dart';
+import '../model/character_model.dart';
 
 part 'characters_state.dart';
 
