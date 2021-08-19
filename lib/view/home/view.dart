@@ -3,7 +3,9 @@ import 'package:breakingbad_app/bloc/characters_cubit.dart';
 import 'package:breakingbad_app/core/constants.dart';
 import 'package:breakingbad_app/core/router/router.dart';
 import 'package:breakingbad_app/model/character_model.dart';
-import 'package:breakingbad_app/view/widgets/loading_widget.dart';
+import 'package:breakingbad_app/view/character/character_view.dart';
+import 'package:breakingbad_app/view/home/widgets/loading_widget.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -108,48 +110,59 @@ class _HomeViewState extends State<HomeView> {
                       crossAxisSpacing: 1,
                       childAspectRatio: 2 / 3,
                     ),
-                    itemBuilder: (context, index) => Container(
-                      width: double.infinity,
-                      margin: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-                      padding: EdgeInsetsDirectional.all(4),
-                      decoration: BoxDecoration(
-                        color: MyColors.lightBlue,
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      child: GridTile(
-                        child: characterGetter[index].image.isNotEmpty
-                            ? ClipRRect(
+                    itemBuilder: (context, index) => InkWell(
+                      borderRadius: BorderRadius.circular(24),
+                      onTap: () {
+                        MagicRouter.navigateTo(CharacterView(
+                          character: characterGetter[index],
+                        ));
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        margin: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                        padding: EdgeInsetsDirectional.all(4),
+                        decoration: BoxDecoration(
+                          color: MyColors.lightBlue,
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: Hero(
+                          tag: characterGetter[index].charId,
+                          child: GridTile(
+                            child: characterGetter[index].image.isNotEmpty
+                                ? ClipRRect(
+                                    borderRadius: BorderRadius.circular(24),
+                                    child: FadeInImage.assetNetwork(
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      placeholder: 'assets/images/loading.gif',
+                                      image: characterGetter[index].image,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                : Image.asset('assets/images/placeholder.png'),
+                            footer: Container(
+                              width: double.infinity,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 15, vertical: 10),
+                              // color: Colors.black54,
+                              decoration: BoxDecoration(
+                                color: MyColors.lightBlue,
                                 borderRadius: BorderRadius.circular(24),
-                                child: FadeInImage.assetNetwork(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  placeholder: 'assets/images/loading.gif',
-                                  image: characterGetter[index].image,
-                                  fit: BoxFit.cover,
+                              ),
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                '${characterGetter[index].name}',
+                                style: TextStyle(
+                                  height: 1.3,
+                                  fontSize: 16,
+                                  color: MyColors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              )
-                            : Image.asset('assets/images/placeholder.png'),
-                        footer: Container(
-                          width: double.infinity,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 10),
-                          // color: Colors.black54,
-                          decoration: BoxDecoration(
-                            color: MyColors.lightBlue,
-                            borderRadius: BorderRadius.circular(24),
-                          ),
-                          alignment: Alignment.bottomCenter,
-                          child: Text(
-                            '${characterGetter[index].name}',
-                            style: TextStyle(
-                              height: 1.3,
-                              fontSize: 16,
-                              color: MyColors.white,
-                              fontWeight: FontWeight.bold,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
-                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
